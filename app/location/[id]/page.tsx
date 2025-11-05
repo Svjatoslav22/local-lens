@@ -13,7 +13,7 @@ interface LocationData {
 }
 
 async function getLocationById(id: string) {
-    const res = await fetch(`http://localhost:3000/api/locations`);
+    const res = await fetch(`${process.env.VERCEL_URL ? 'https://' + process.env.VERCEL_URL : 'http://localhost:3000'}/api/locations`);
     const locations: LocationData[] = await res.json();
     return locations.find((loc: LocationData) => loc.id === parseInt(id));
 }
