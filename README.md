@@ -1,36 +1,137 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📍 Local-LENS | Місцева Дошка Оголошень
 
-## Getting Started
+> **Vintage-style local business directory for Sambir city** 
+> 
+> Каталог місцевих підприємств Самбора з дизайном у стилі винтажної дошки оголошень
 
-First, run the development server:
+![Next.js](https://img.shields.io/badge/Next.js-15.0-black) ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue) ![CSS Modules](https://img.shields.io/badge/CSS-Modules-green)
 
+## 🎯 Опис проєкту
+
+**Local-LENS** — це веб-додаток каталогу місцевих підприємств міста Самбір з унікальним винтажним дизайном у стилі дошки оголошень. Користувачі можуть переглядати бізнеси за категоріями та отримувати детальну інформацію про кожне місце.
+
+### ✨ Особливості дизайну
+- 🎨 **Винтажний стиль** з ефектом паперових оголошень
+- 📌 **Цвяхи на картках** для автентичності
+- 🔄 **Легкі повороти карток** для природного вигляду
+- 🟤 **Коричнева колірна палітра** (#8B4513, #D2B48C, #654321)
+- 📝 **Класична типографіка** (Georgia, Times New Roman)
+
+## 🏪 Категорії бізнесу
+
+- **🏟️ Arena Sport** — Спортивні арени та фітнес-центри
+- **🎱 Billiard** — Більярдні клуби
+- **🏛️ Center** — Центральні локації міста
+- **🐉 Dragon Park** — Розважальні центри
+- **🌳 Park** — Парки та зони відпочинку
+- **🍽️ Restaurants** — Ресторани та кафе
+
+## 🚀 Швидкий старт
+
+### Встановлення залежностей
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Запуск в режимі розробки
+```bash
+npm run dev
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Відкрийте [http://localhost:3000](http://localhost:3000) у браузері.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Збірка для продакшну
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## 🛠️ Технічний стек
 
-To learn more about Next.js, take a look at the following resources:
+- **Frontend**: Next.js 15 (App Router)
+- **Language**: TypeScript
+- **Styling**: CSS Modules + Custom Properties
+- **Routing**: Dynamic Routes `[id]`
+- **API**: Next.js API Routes
+- **Fonts**: Google Fonts (Geist)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📁 Структура проєкту
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+local-lens/
+├── app/
+│   ├── api/locations/          # API endpoint для локацій
+│   ├── arena-sport/           # Сторінка спортивних арен
+│   ├── billiard/             # Сторінка більярдних
+│   ├── center/               # Сторінка центру міста
+│   ├── dragon-park/          # Сторінка розважальних центрів
+│   ├── park/                 # Сторінка парків
+│   ├── restaurants/          # Сторінка ресторанів
+│   ├── location/[id]/        # Динамічні сторінки локацій
+│   ├── globals.css           # Глобальні стилі
+│   ├── layout.tsx            # Root layout
+│   ├── page.tsx              # Головна сторінка
+│   ├── page.module.css       # Стилі головної сторінки
+│   ├── category.module.css   # Стилі категорій
+│   └── location-detail.module.css # Стилі деталей локацій
+├── public/                   # Статичні ресурси
+└── README.md
+```
 
-## Deploy on Vercel
+## 🎨 Стилізація
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Проєкт використовує **CSS Modules** для ізоляції стилів та кастомні CSS властивості для винтажного дизайну:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Папір ефект**: `background: #FFFEF7` + `border: 2px solid #D2B48C`
+- **Цвяхи**: Псевдоелементи `::before` з `border-radius: 50%`
+- **Тіні**: `box-shadow: 3px 3px 8px rgba(139, 69, 19, 0.3)`
+- **Анімації**: `transform: rotate()` + `transition: all 0.3s ease`
+
+## 📱 Адаптивний дизайн
+
+- **Desktop**: 3-колонкова сітка
+- **Tablet**: 2-колонкова сітка  
+- **Mobile**: 1-колонкова сітка
+
+## 🔗 API Endpoints
+
+### GET `/api/locations`
+Повертає список всіх локацій у JSON форматі.
+
+**Приклад відповіді:**
+```json
+[
+  {
+    "id": 1,
+    "name": "Arena Sport Sambir",
+    "category": "arena-sport",
+    "address": "вул. Мазепи 10, Самбір"
+  }
+]
+```
+
+## 🌐 Деплой
+
+### Vercel (Рекомендовано)
+```bash
+npm install -g vercel
+vercel
+```
+
+### Netlify
+```bash
+npm run build
+# Завантажте папку .next на Netlify
+```
+
+## 📄 Ліцензія
+
+MIT License - використовуйте вільно для особистих та комерційних проєктів.
+
+## 👨‍💻 Автор
+
+**Svjatoslav** - [GitHub](https://github.com/Svjatoslav22)
+
+---
+
+*Зроблено з ❤️ для громади Самбора*
