@@ -1,0 +1,186 @@
+
+.container {
+  padding: 2rem;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-image: url('/vintage-paper.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 2rem;
+}
+
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 248, 220, 0.9);
+  border: 3px solid #8B4513;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 4px 4px 12px rgba(139, 69, 19, 0.4);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #8B4513;
+  margin-bottom: 1rem;
+  font-family: 'Georgia', serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.description {
+  font-size: 1rem;
+  color: #654321;
+  line-height: 1.6;
+  font-family: 'Times New Roman', serif;
+  text-align: center;
+  font-style: italic;
+}
+
+.locationsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem;
+}
+
+.locationsGrid a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.locationCard {
+  background: #FFFEF7;
+  border: 2px solid #D2B48C;
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 3px 3px 8px rgba(139, 69, 19, 0.3);
+  transform: rotate(-0.5deg);
+  position: relative;
+  font-family: 'Arial', sans-serif;
+}
+
+.locationCard:hover {
+  transform: rotate(0deg) translateY(-3px);
+  box-shadow: 5px 5px 15px rgba(139, 69, 19, 0.4);
+  border-color: #CD853F;
+}
+
+.locationCard:nth-child(even) {
+  transform: rotate(0.5deg);
+}
+
+.locationCard:nth-child(3n) {
+  transform: rotate(-1deg);
+}
+
+.locationCard::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  background: #8B4513;
+  border-radius: 50%;
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.locationName {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #8B4513;
+  margin-bottom: 0.8rem;
+  margin-top: 1rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #D2B48C;
+  padding-bottom: 0.5rem;
+}
+
+.locationAddress {
+  color: #654321;
+  font-size: 0.9rem;
+  text-align: center;
+  font-family: 'Times New Roman', serif;
+  font-style: italic;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: #8B4513;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  background: #FFFEF7;
+  border: 2px solid #D2B48C;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 3px 3px 8px rgba(139, 69, 19, 0.3);
+  font-family: 'Arial', sans-serif;
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+  max-width: 250px;
+}
+
+.backLink:hover {
+  background: #FFF8DC;
+  transform: translateY(-2px);
+  box-shadow: 5px 5px 15px rgba(139, 69, 19, 0.4);
+  border-color: #CD853F;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 2rem;
+  background: #FFFEF7;
+  border: 2px solid #D2B48C;
+  border-radius: 8px;
+  color: #654321;
+  font-size: 1.1rem;
+  font-weight: 500;
+  box-shadow: 3px 3px 8px rgba(139, 69, 19, 0.3);
+  font-family: 'Times New Roman', serif;
+  font-style: italic;
+}
