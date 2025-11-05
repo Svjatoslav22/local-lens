@@ -1,19 +1,9 @@
 import Link from "next/link";
 import styles from '../category.module.css';
-
-interface Location {
-    id: number;
-    name: string;
-    category: string;
-    address: string;
-}
+import { getLocationsByCategory } from "@/lib/locations";
 
 async function getCenterLocations() {
-    const res = await fetch(`${process.env.VERCEL_URL ? 'https://' + process.env.VERCEL_URL : 'http://localhost:3000'}/api/locations`);
-    const locations: Location[] = await res.json();
-    return locations.filter((location: Location) => {
-        return (location.category === 'center');
-    });
+    return getLocationsByCategory('center');
 }
 
 export default async function Center() {

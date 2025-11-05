@@ -1,21 +1,13 @@
 import Link from "next/link";
 import styles from '../../location-detail.module.css';
+import { getLocationById as getLocationByIdFromLib } from "@/lib/locations";
 
 interface Location {
     params: { id: string };
 }
 
-interface LocationData {
-    id: number;
-    name: string;
-    category: string;
-    address: string;
-}
-
 async function getLocationById(id: string) {
-    const res = await fetch(`${process.env.VERCEL_URL ? 'https://' + process.env.VERCEL_URL : 'http://localhost:3000'}/api/locations`);
-    const locations: LocationData[] = await res.json();
-    return locations.find((loc: LocationData) => loc.id === parseInt(id));
+    return getLocationByIdFromLib(parseInt(id));
 }
 
 const categoryNames: Record<string, string> = {
