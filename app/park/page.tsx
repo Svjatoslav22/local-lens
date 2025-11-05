@@ -1,32 +1,22 @@
 import Link from "next/link";
 import styles from '../category.module.css';
-
-interface Location {
-    id: number;
-    name: string;
-    category: string;
-    address: string;
-}
+import { getLocationsByCategory } from "@/lib/locations";
 
 async function getParkLocations() {
-    const res = await fetch(`${process.env.VERCEL_URL ? 'https://' + process.env.VERCEL_URL : 'http://localhost:3000'}/api/locations`);
-    const locations: Location[] = await res.json();
-    return locations.filter((location: Location) => {
-        return (location.category === 'park');
-    });
+    return getLocationsByCategory('park');
 }
 
-export default async function Park() {
+export default async function Parks() {
     const locations = await getParkLocations();
 
     return (
         <div className={styles.container}>
             <div className={styles.content}>
                 <div className={styles.header}>
-                <h1 className={styles.title}>🌳 Park</h1>
+                <h1 className={styles.title}>🌳 Parks</h1>
                 <p className={styles.description}>
-                    Міські парки та зелені зони Самбора для відпочинку та прогулянок.
-                    Найкращі місця для активного відпочинку на природі.
+                    Парки та зони відпочинку Самбора для прогулянок та активного дозвілля.
+                    Місця для відпочинку на природі та спорту на свіжому повітрі.
                 </p>
             </div>
             <div className={styles.locationsGrid}>

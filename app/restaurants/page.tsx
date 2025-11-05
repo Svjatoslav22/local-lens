@@ -1,30 +1,9 @@
 import Link from "next/link";
 import styles from '../category.module.css';
-
-interface Location {
-    id: number;
-    name: string;
-    category: string;
-    address: string;
-}
+import { getLocationsByCategory } from "@/lib/locations";
 
 async function getRestaurantLocations() {
-    // Використовуємо відносний URL який працює і локально і на Vercel
-    const res = await fetch('/api/locations', {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    });
-    
-    if (!res.ok) {
-        throw new Error(`Failed to fetch locations: ${res.status}`);
-    }
-    
-    const locations: Location[] = await res.json();
-    return locations.filter((location: Location) => {
-        return (location.category === 'restaurants');
-    });
+    return getLocationsByCategory('restaurants');
 }
 
 export default async function Restaurants() {

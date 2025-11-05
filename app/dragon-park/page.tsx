@@ -1,19 +1,9 @@
 import Link from "next/link";
 import styles from '../category.module.css';
-
-interface Location {
-    id: number;
-    name: string;
-    category: string;
-    address: string;
-}
+import { getLocationsByCategory } from "@/lib/locations";
 
 async function getDragonParkLocations() {
-    const res = await fetch(`${process.env.VERCEL_URL ? 'https://' + process.env.VERCEL_URL : 'http://localhost:3000'}/api/locations`);
-    const locations: Location[] = await res.json();
-    return locations.filter((location: Location) => {
-        return (location.category === 'dragon-park');
-    });
+    return getLocationsByCategory('dragon-park');
 }
 
 export default async function DragonPark() {
@@ -23,10 +13,10 @@ export default async function DragonPark() {
         <div className={styles.container}>
             <div className={styles.content}>
                 <div className={styles.header}>
-                <h1 className={styles.title}>🐉 Dragon Park</h1>
+                <h1 className={styles.title}>🐲 Dragon Park</h1>
                 <p className={styles.description}>
-                    Сімейний розважальний центр з картингом, батутами, VR та ігровими автоматами.
-                    Найкраще місце для сімейного відпочинку.
+                    Розважальні центри та атракціони Самбора для сімейного відпочинку.
+                    Дитячі майданчики, ігрові зони та розважальні активності.
                 </p>
             </div>
             <div className={styles.locationsGrid}>
