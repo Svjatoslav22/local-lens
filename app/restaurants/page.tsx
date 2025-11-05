@@ -9,7 +9,18 @@ interface Location {
 }
 
 async function getRestaurantLocations() {
-    const res = await fetch(`${process.env.VERCEL_URL ? 'https://' + process.env.VERCEL_URL : 'http://localhost:3000'}/api/locations`);
+    // Використовуємо відносний URL який працює і локально і на Vercel
+    const res = await fetch('/api/locations', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
+    
+    if (!res.ok) {
+        throw new Error(`Failed to fetch locations: ${res.status}`);
+    }
+    
     const locations: Location[] = await res.json();
     return locations.filter((location: Location) => {
         return (location.category === 'restaurants');
