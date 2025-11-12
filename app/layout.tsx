@@ -15,8 +15,13 @@ export const metadata = {
   title: "Local Lens Sambir",
   description: "Відкрийте найкращі місця Самбора: ресторани, кафе, спортивні центри, парки та розваги.",
   keywords: ["Самбір", "місця Самбора", "ресторани", "кафе", "парки", "розваги"],
+  icons: {
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
+  },
   openGraph: {
-    title: "Local Lens Sambir ",
+    title: "Local Lens Sambir",
     description: "Відкрийте найкращі місця Самбора: ресторани, кафе, спортивні центри, парки та розваги.",
     url: "https://local-lens-sambir-ss.vercel.app",
     siteName: "Local Lens Sambir",
@@ -31,7 +36,7 @@ export const metadata = {
     locale: "uk_UA",
     type: "website",
   },
-  
+ 
 };
 
 export default function RootLayout({
